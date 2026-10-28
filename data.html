@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The data — The Plastic Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ===== FIXED NAVIGATION PANEL ===== -->
+  <aside class="panel">
+    <a href="index.html" class="brand">The Plastic Ledger</a>
+
+    <h1 class="panel-title">The evidence,<br>in full</h1>
+
+    <p class="panel-text">
+      Switch any chart between global and Indian figures. Every source is
+      named, and where estimates disagree we say so.
+    </p>
+
+    <!-- ===== SCOPE TOGGLE BUTTONS ===== -->
+    <div class="scope-box">
+      <span class="scope-label">Showing</span>
+      <div class="scope-buttons">
+        <button type="button" class="scope-btn is-active" data-scope="india">India</button>
+        <button type="button" class="scope-btn" data-scope="global">Global</button>
+        <button type="button" class="scope-btn" data-scope="perPerson">Per person</button>
+      </div>
+    </div>
+
+    <nav class="panel-nav">
+      <a href="index.html">00 &nbsp; Home</a>
+      <a href="data.html" class="is-active">01 &nbsp; The data</a>
+      <a href="calculator.html">02 &nbsp; Your footprint</a>
+      <a href="action.html">03 &nbsp; Take action</a>
+      <a href="feedback.html">04 &nbsp; Feedback</a>
+    </nav>
+  </aside>
+
+  <!-- ===== SCROLLING CONTENT COLUMN ===== -->
+  <main class="scroll">
+
+    <section class="card">
+      <div class="card-head">
+        <h2 id="disposal-title">Where India's plastic ends up</h2>
+        <span class="card-unit" id="disposal-unit">Mt per year</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="disposalChart"></canvas>
+      </div>
+      <p class="source" id="disposal-source">Source: CPCB</p>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2 id="timeline-title">Leakage into water, by year</h2>
+        <span class="card-unit">Mt per year</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="timelineChart"></canvas>
+      </div>
+      <p class="source" id="timeline-source">
+        Source: UN Environment Programme — leakage is projected to nearly triple by 2040.
+      </p>
+    </section>
+
+    <section class="cta-strip">
+      <div>
+        <p class="cta-title" id="cta-title">These are national numbers.</p>
+        <p class="cta-sub">Find out how much of it is yours.</p>
+      </div>
+      <a href="calculator.html" class="cta-btn">Calculate my footprint</a>
+    </section>
+
+  </main>
+</div>
+
+<script src="chart.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Plastic Ledger — how much of India's plastic is yours?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ===== FIXED NAVIGATION PANEL ===== -->
+  <aside class="panel">
+    <a href="index.html" class="brand">The Plastic Ledger</a>
+
+    <h1 class="panel-title">You already care.<br>Now see the cost.</h1>
+
+    <p class="panel-text">
+      Find out how much plastic ends up in our rivers, oceans and communities
+      &mdash; and what you can do about it this week.
+    </p>
+
+    <!-- ===== LIVE SUMMARY FIGURE ===== -->
+    <div class="estimate-box">
+      <span class="estimate-label">India, this year so far</span>
+      <p class="estimate-figure" id="ytd-figure">0.00 Mt</p>
+      <p class="estimate-unit">plastic waste generated</p>
+      <hr class="estimate-rule">
+      <p class="estimate-note" id="since-open">+0 kg since you opened this page</p>
+    </div>
+
+    <a href="calculator.html" class="cta-btn panel-cta">Calculate my footprint</a>
+
+    <nav class="panel-nav">
+      <a href="index.html" class="is-active">00 &nbsp; Home</a>
+      <a href="data.html">01 &nbsp; The data</a>
+      <a href="calculator.html">02 &nbsp; Your footprint</a>
+      <a href="action.html">03 &nbsp; Take action</a>
+      <a href="feedback.html">04 &nbsp; Feedback</a>
+    </nav>
+  </aside>
+
+  <!-- ===== SCROLLING CONTENT COLUMN ===== -->
+  <main class="scroll">
+
+    <article class="story">
+      <div class="story-art story-art--waves" aria-hidden="true"></div>
+      <div class="story-body">
+        <p class="eyebrow">The scale</p>
+        <h2 class="story-title">India leads the world in plastic pollution</h2>
+        <p class="story-text">
+          9.3 million tonnes a year, of which 3.5 million tonnes is released
+          straight into the environment as debris.
+        </p>
+        <a href="data.html" class="story-link">Read the breakdown &rarr;</a>
+      </div>
+    </article>
+
+    <article class="story">
+      <div class="story-art story-art--bottle" aria-hidden="true"></div>
+      <div class="story-body">
+        <p class="eyebrow">The myth</p>
+        <h2 class="story-title">Recycling is not the answer you think it is</h2>
+        <p class="story-text">
+          Only around 9% of all plastic ever produced has actually been recycled.
+          The rest is still with us.
+        </p>
+        <a href="data.html" class="story-link">Why recycling fails &rarr;</a>
+      </div>
+    </article>
+
+    <article class="story story--dark">
+      <div class="story-art story-art--drop" aria-hidden="true"></div>
+      <div class="story-body">
+        <p class="eyebrow eyebrow--light">It is already inside us</p>
+        <h2 class="story-title">Plastic has been found in human blood</h2>
+        <p class="story-text">
+          A 2022 study detected plastic particles in 17 of 22 participants
+          &mdash; roughly 77% of those tested.
+        </p>
+        <a href="data.html" class="story-link story-link--light">See the study &rarr;</a>
+      </div>
+    </article>
+
+    <section class="prompt-strip">
+      <div>
+        <p class="prompt-title">Not sure where to start?</p>
+        <p class="prompt-sub">Three minutes. One number. A plan you can actually follow.</p>
+      </div>
+      <a href="calculator.html" class="cta-btn">Take the 3-minute check</a>
+    </section>
+
+  </main>
+</div>
+
+<script src="home.js"></script>
+
+</body>
+</html>

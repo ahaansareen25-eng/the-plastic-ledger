@@ -1,0 +1,676 @@
+/* =========================================================
+   THE PLASTIC LEDGER — stylesheet
+   Design: V3 "Split-Screen Editorial" (Criterion B3)
+   ========================================================= */
+
+:root {
+  --green:     #15534A;
+  --orange:    #E8734F;
+  --bone:      #FBF7F0;
+  --ink:       #221F1A;
+  --body:      #4D4A44;
+  --muted:     #93968D;
+  --pale:      #BFD8D2;
+  --card-line: #E3DCCF;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bone);
+  font-family: "Public Sans", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ===== FIXED NAVIGATION PANEL ===== */
+.panel {
+  width: 468px;
+  flex-shrink: 0;
+  background: var(--green);
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.brand {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #F6EFE2;
+  text-decoration: none;
+}
+
+.panel-title {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.08;
+}
+
+.panel-text {
+  margin: 0;
+  font-size: 17px;
+  color: var(--pale);
+  line-height: 1.6;
+}
+
+/* ===== SCOPE TOGGLE ===== */
+.scope-box {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.scope-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9CC2BA;
+}
+
+.scope-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.scope-btn {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid #4B7E75;
+  background: transparent;
+  color: #DCEBE7;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.scope-btn:hover { background: rgba(255, 255, 255, 0.08); }
+
+.scope-btn.is-active {
+  background: #F6EFE2;
+  border-color: #F6EFE2;
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* ===== PANEL NAVIGATION ===== */
+.panel-nav {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: 24px;
+}
+
+.panel-nav a {
+  color: #DCEBE7;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.panel-nav a.is-active { color: #FFFFFF; font-weight: 600; }
+
+/* ===== SCROLLING CONTENT COLUMN ===== */
+.scroll {
+  flex-grow: 1;
+  padding: 48px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 26px 28px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 18px;
+  gap: 16px;
+}
+
+.card-head h2 {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.card-unit { font-size: 13px; color: #7C8279; white-space: nowrap; }
+
+.chart-wrap { height: 230px; }
+
+.source {
+  margin: 14px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ===== CALL-TO-ACTION STRIP ===== */
+.cta-strip {
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 22px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.cta-title {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.cta-sub { margin: 4px 0 0; font-size: 14px; color: #CFC8BC; }
+
+.cta-btn {
+  flex-shrink: 0;
+  padding: 14px 24px;
+  background: var(--orange);
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ===== RESPONSIVE: panel collapses to a header on mobile ===== */
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+
+  .panel {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .panel-title { font-size: 32px; }
+  .panel-text, .panel-nav { display: none; }
+  .scroll { padding: 20px; }
+}
+
+/* =========================================================
+   YOUR FOOTPRINT PAGE (calculator.html)
+   ========================================================= */
+
+/* ===== RUNNING ESTIMATE BOX ===== */
+.estimate-box {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.estimate-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9CC2BA;
+}
+
+.estimate-figure {
+  margin: 6px 0 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.estimate-unit { margin: 6px 0 0; font-size: 14px; color: var(--pale); }
+
+.estimate-rule {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 16px 0;
+}
+
+.estimate-note { margin: 0; font-size: 14px; color: var(--pale); line-height: 1.5; }
+
+/* ===== PROGRESS ===== */
+.progress-row { display: flex; align-items: center; gap: 14px; }
+
+.progress-track {
+  flex-grow: 1;
+  height: 8px;
+  background: #EAE3D6;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 8px;
+  background: var(--green);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+.progress-label { font-size: 14px; color: #7C8279; white-space: nowrap; }
+
+/* ===== QUESTION CARD ===== */
+.question-card { padding: 34px 36px; }
+
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.question {
+  margin: 8px 0 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.help { margin: 10px 0 0; font-size: 15px; color: #6E6A62; }
+
+.options { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  border-radius: 10px;
+  border: 2px solid var(--card-line);
+  background: #FFFFFF;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.option:hover { border-color: #C9C2B4; }
+
+.option .radio {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid #C9C2B4;
+  background: #FFFFFF;
+}
+
+.option.is-selected {
+  border-color: var(--green);
+  background: #EDF4F2;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.option.is-selected .radio {
+  border-color: var(--green);
+  background: radial-gradient(var(--green) 42%, #FFFFFF 46%);
+}
+
+/* ===== VALIDATION MESSAGE ===== */
+.error {
+  margin: 14px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #C4472A;
+  display: none;
+}
+
+.error.is-visible { display: block; }
+
+/* ===== NAVIGATION BUTTONS ===== */
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 26px;
+}
+
+.btn-back {
+  padding: 13px 24px;
+  border-radius: 8px;
+  border: 1px solid #C9C2B4;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--body);
+  cursor: pointer;
+}
+
+.btn-back:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-next {
+  padding: 13px 30px;
+  border-radius: 8px;
+  border: none;
+  background: var(--green);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-next:hover { background: #0F3F38; }
+
+/* ===== RESULT CARD ===== */
+.result-card { display: none; padding: 34px 36px; }
+
+.result-head { display: flex; align-items: center; gap: 16px; margin-top: 10px; }
+
+.result-figure {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.result-band {
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.result-unit { margin: 8px 0 0; font-size: 15px; color: #6E6A62; }
+
+.result-heading {
+  margin: 24px 0 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.result-message { margin: 10px 0 0; font-size: 16px; color: var(--body); line-height: 1.6; }
+
+.result-facts {
+  margin-top: 22px;
+  border: 1px dashed #C9C2B4;
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.result-facts p { margin: 0 0 8px; font-size: 15px; color: var(--body); }
+.result-facts p:last-child { margin-bottom: 0; }
+
+.result-btn { display: inline-block; margin-top: 24px; }
+
+/* =========================================================
+   HOME PAGE (index.html)
+   ========================================================= */
+.panel-cta { align-self: flex-start; }
+
+.story {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 26px 28px;
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.story--dark { background: var(--ink); }
+
+.story-art {
+  width: 104px;
+  height: 104px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #E8E0D2;
+}
+
+.story-art--waves {
+  background:
+    repeating-linear-gradient(
+      -8deg, #BFD8D2 0 6px, #E8E0D2 6px 14px);
+}
+
+.story-art--bottle {
+  background: #E8E0D2;
+  background-image:
+    radial-gradient(circle at 52px 76px, var(--pale) 0 26px, transparent 27px),
+    linear-gradient(to bottom, transparent 0 24px, var(--pale) 24px 48px, transparent 49px);
+}
+
+.story-art--drop {
+  background: #3A352D;
+  background-image: radial-gradient(circle at 52px 62px, var(--orange) 0 24px, transparent 25px);
+}
+
+.story-body { flex-grow: 1; }
+
+.eyebrow--light { color: #F0A58C; }
+
+.story-title {
+  margin: 6px 0 8px;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.story--dark .story-title { color: #FFFFFF; }
+
+.story-text { margin: 0; font-size: 15px; color: var(--body); line-height: 1.55; }
+.story--dark .story-text { color: #CFC8BC; }
+
+.story-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.story-link--light { color: #F0A58C; }
+
+.prompt-strip {
+  border: 1px dashed #C9C2B4;
+  border-radius: 14px;
+  padding: 22px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.prompt-title {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.prompt-sub { margin: 4px 0 0; font-size: 14px; color: #6E6A62; }
+
+/* =========================================================
+   TAKE ACTION PAGE (action.html)
+   ========================================================= */
+.compare-box { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; }
+.compare-col--right { text-align: right; }
+
+.compare-figure {
+  margin: 4px 0 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.compare-figure--high { color: #F2A088; }
+.compare-arrow { color: #6E9990; font-size: 22px; padding-bottom: 8px; }
+
+.action {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.action--top { background: var(--ink); }
+
+.action-rank {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #C9C2B4;
+  width: 44px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.action--top .action-rank { color: #F2A088; }
+
+.action-body { flex-grow: 1; }
+
+.action-title {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.action--top .action-title { color: #FFFFFF; }
+
+.action-text { margin: 4px 0 0; font-size: 14px; color: #6E6A62; }
+.action--top .action-text { color: #CFC8BC; }
+
+.action-saving {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--orange);
+  white-space: nowrap;
+}
+
+/* =========================================================
+   FEEDBACK PAGE (feedback.html)
+   ========================================================= */
+.source-list { margin: 12px 0 0; padding-left: 18px; }
+.source-list li { font-size: 14px; color: var(--pale); line-height: 1.45; margin-bottom: 8px; }
+
+.form-card { padding: 32px 34px; }
+
+.form-heading {
+  margin: 0 0 20px;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+
+.field label { font-size: 14px; font-weight: 600; color: var(--ink); }
+
+.field input,
+.field select,
+.field textarea {
+  padding: 14px 16px;
+  border: 1px solid #DED7C9;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: #FFFFFF;
+  resize: vertical;
+}
+
+.form-note { font-size: 13px; color: var(--muted); }
+
+.confirm-card { display: none; padding: 32px 34px; }
+
+/* =========================================================
+   ACCESSIBILITY FIXES
+   Applied after the automated axe-core audit in Criterion D.
+   Every change below raises a measured contrast ratio above
+   the WCAG AA threshold of 4.5:1, or enlarges a touch target
+   to the 44px minimum set in the B1 Layout specification.
+   ========================================================= */
+
+:root {
+  /* darker accent reserved for text and for white-on-colour buttons */
+  --orange-text: #B8481F;
+  /* darker neutrals: the originals measured between 1.77:1 and 3.94:1 */
+  --muted-aa:    #6B6E66;
+  --unit-aa:     #5F6459;
+  --rank-aa:     #857E70;
+}
+
+/* was #E8734F on white — 3:1 */
+.eyebrow,
+.story-link,
+#category { color: var(--orange-text); }
+
+/* was white on #E8734F — 3:1 */
+.cta-btn,
+.btn-next { background: var(--orange-text); }
+.cta-btn:hover { background: #9C3C19; }
+
+/* was #93968D — 2.81:1 to 3:1 */
+.source,
+.form-note,
+.prompt-sub { color: var(--muted-aa); }
+
+/* was #7C8279 — 3.69:1 to 3.94:1 */
+.card-unit,
+.progress-label { color: var(--unit-aa); }
+
+/* was #C9C2B4 on white — 1.77:1 */
+.action-rank { color: var(--rank-aa); }
+
+/* Touch targets: these links measured 17px and 27px tall on a phone,
+   below the 44px minimum. Padding is added without moving the text. */
+.story-link,
+.brand {
+  display: inline-block;
+  min-height: 44px;
+  line-height: 44px;
+}
+
+.brand { line-height: 1.2; padding: 9px 0; }
+
+/* On the dark story card the darker accent fails against #221F1A, so a
+   lighter tint of the same hue is used there instead (3.11:1 -> AA). */
+.eyebrow--light,
+.story-link--light { color: #F2A98F; }
+
+/* Scope toggles measured 37px tall on a phone. */
+@media (max-width: 768px) {
+  .scope-btn { min-height: 44px; }
+}

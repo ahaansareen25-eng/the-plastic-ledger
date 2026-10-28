@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your footprint — The Plastic Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ===== FIXED NAVIGATION PANEL ===== -->
+  <aside class="panel">
+    <a href="index.html" class="brand">The Plastic Ledger</a>
+
+    <h1 class="panel-title">Your share<br>of the ledger</h1>
+
+    <p class="panel-text">
+      Six questions built around what people actually buy in India.
+      Nothing is stored, and we never ask for an email.
+    </p>
+
+    <!-- ===== RUNNING ESTIMATE ===== -->
+    <div class="estimate-box">
+      <span class="estimate-label">Running estimate</span>
+      <p class="estimate-figure" id="running-total">0.0 kg</p>
+      <p class="estimate-unit">per week</p>
+      <hr class="estimate-rule">
+      <p class="estimate-note" id="running-year">About 0 kg a year</p>
+    </div>
+
+    <nav class="panel-nav">
+      <a href="index.html">00 &nbsp; Home</a>
+      <a href="data.html">01 &nbsp; The data</a>
+      <a href="calculator.html" class="is-active">02 &nbsp; Your footprint</a>
+      <a href="action.html">03 &nbsp; Take action</a>
+      <a href="feedback.html">04 &nbsp; Feedback</a>
+    </nav>
+  </aside>
+
+  <!-- ===== SCROLLING CONTENT COLUMN ===== -->
+  <main class="scroll">
+
+    <!-- Progress -->
+    <div class="progress-row">
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <span class="progress-label" id="counter">Question 1 of 6</span>
+    </div>
+
+    <!-- ===== QUESTION CARD ===== -->
+    <section class="card question-card" id="question-card">
+      <p class="eyebrow" id="category">Drinks</p>
+      <h2 class="question" id="question">Question text</h2>
+      <p class="help" id="help">Helper text</p>
+
+      <div class="options" id="options"></div>
+
+      <p class="error" id="error"></p>
+
+      <div class="nav-row">
+        <button type="button" class="btn-back" id="back-btn">Back</button>
+        <button type="button" class="btn-next" id="next-btn">Next question</button>
+      </div>
+    </section>
+
+    <!-- ===== RESULT CARD ===== -->
+    <section class="card result-card" id="result-card">
+      <p class="eyebrow">Your result</p>
+
+      <div class="result-head">
+        <p class="result-figure" id="result-figure">0.0 kg</p>
+        <span class="result-band" id="result-band">Low</span>
+      </div>
+      <p class="result-unit">of single-use plastic per week</p>
+
+      <h2 class="result-heading" id="result-heading">Heading</h2>
+      <p class="result-message" id="result-message">Message</p>
+
+      <div class="result-facts">
+        <p id="result-comparison">Comparison</p>
+        <p id="result-biggest">Biggest source</p>
+      </div>
+
+      <a href="action.html" class="cta-btn result-btn">Show me the changes that matter</a>
+    </section>
+
+  </main>
+</div>
+
+<script src="calculator.js"></script>
+
+</body>
+</html>
